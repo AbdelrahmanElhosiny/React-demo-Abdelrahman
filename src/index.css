@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "Poppins-el";
+  src: url(/src/assets/fonts/Poppins-ExtraLight.ttf);
+}
+
+@font-face {
+  font-family: "Poppins-r";
+  src: url(/src/assets/fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Poppins-b";
+  src: url(/src/assets/fonts/Poppins-Bold.ttf);
+}
+
+:root {
+  font-size: 16px;
+}
