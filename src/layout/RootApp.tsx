@@ -1,15 +1,15 @@
-import SideNav from "../components/SideNav"
-import RouterIndex from "../routes/Index"
+import SideNav from "../components/SideNav";
+import RouterIndex from "../routes/Index";
+import style from "../styles";
+import styled from "@emotion/styled/macro";
 
 function RootApp() {
-   return (
-      <>
-         <SideNav />
-         <RouterIndex />
-      </>
-   )
+  return (
+    <>
+      <SideNav />
+      <RouterIndex />
+    </>
+  );
 }
 
-console.log("RootApp")
-
-export default RootApp
+export default RootApp;
