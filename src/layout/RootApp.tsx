@@ -1,13 +1,15 @@
-import SideNav from "../components/SideNav";
-import RouterIndex from "../routes/Index";
+import SideNav from "../components/SideNav"
+import RouterIndex from "../routes/Index"
 
 function RootApp() {
-  return (
-    <>
-      <SideNav />
-      <RouterIndex />
-    </>
-  );
+   return (
+      <>
+         <SideNav />
+         <RouterIndex />
+      </>
+   )
 }
 
-export default RootApp;
+console.log("RootApp")
+
+export default RootApp
