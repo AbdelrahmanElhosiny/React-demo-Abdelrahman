@@ -1,9 +1,15 @@
 import styled from "@emotion/styled";
+import SVG from "../assets/svg";
+import Logo from "../assets/svg/logo";
 
 const SideNav = () => {
   return (
     <Holder>
-      <h1>SideNav</h1>
+      <div className="logo">
+        <SVG.Logo.monotone />
+      </div>
+
+      <ul></ul>
     </Holder>
   );
 };
