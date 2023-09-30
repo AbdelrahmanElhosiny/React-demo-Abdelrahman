@@ -1,6 +1,15 @@
 import styled from "@emotion/styled";
 import SVG from "../assets/svg";
-import Logo from "../assets/svg/logo";
+import React from "react";
+import color from "../styles/color";
+import { NavLink } from "react-router-dom";
+import font from "../styles/font";
+
+interface SideNavLinkProps {
+  icon: React.ReactNode;
+  label: string;
+  path: string;
+}
 
 const SideNav = () => {
   return (
@@ -9,11 +18,70 @@ const SideNav = () => {
         <SVG.Logo.monotone />
       </div>
 
-      <ul></ul>
+      <ul className="all-links-holder">
+        <SideNavLink icon={<SVG.Icons.home />} label="Home" path="/" />
+        <SideNavLink
+          icon={<SVG.Icons.gear />}
+          label="Settings"
+          path="/settings"
+        />
+        <SideNavLink icon={<SVG.Icons.chat />} label="Chat" path="/chat" />
+      </ul>
     </Holder>
   );
 };
+// --------------------
+// define SideNavLink
+// --------------------
+const SideNavLink = ({ icon, label, path }: SideNavLinkProps) => {
+  return (
+    <NavLink className="link-holder" to={path}>
+      <span className="link-icon">{icon}</span>
+      <span className="link-label">{label}</span>
+    </NavLink>
+  );
+};
 
-const Holder = styled.div``;
+// --------------------
+// STYLES
+// --------------------
+const Holder = styled.div`
+  display: grid;
+  color: ${color.white};
+  padding: 2.5em 1em;
+  grid-template-columns: 1em, auto;
+
+  .logo svg {
+    width: 8em;
+    fill: currentColor;
+  }
+  .all-links-holder {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    margin: 0;
+    padding: 0;
+
+    .link-holder {
+      ${font.regular}
+      position: relative;
+      align-items: center;
+      color: currentColor;
+      list-style: none;
+      display: flex;
+      gap: 1.5em;
+      text-decoration: none;
+
+      .link-icon svg {
+        width: 2em;
+        fill: currentColor;
+      }
+
+      .link-label {
+        font-size: 1.5em;
+      }
+    }
+  }
+`;
 
 export default SideNav;
