@@ -27,6 +27,9 @@ const SideNav = () => {
         />
         <SideNavLink icon={<SVG.Icons.chat />} label="Chat" path="/chat" />
       </ul>
+      <div className="faq-ink all-links-holder">
+        <SideNavLink icon={<SVG.Icons.info />} label="FAQ" path="/faq" />
+      </div>
     </Holder>
   );
 };
@@ -81,6 +84,10 @@ const Holder = styled.div`
         font-size: 1.5em;
       }
     }
+  }
+
+  .faq-link {
+    align-self: end;
   }
 `;
 

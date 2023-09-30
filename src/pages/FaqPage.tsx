@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
 
-function SettingsPage() {
+function FAQ() {
   return (
     <Holder>
-      <h1>Settings</h1>
+      <h1>FAQ.</h1>
     </Holder>
   );
 }
 
 const Holder = styled.div``;
 
-export default SettingsPage;
+export default FAQ;

@@ -25,7 +25,7 @@ const Holder = styled.div`
   padding: 1.1em 1em;
   margin: 0;
   background-color: ${color.violet};
-  ${font.regular};
+  ${font.bold};
 
   .routes-holder {
     background-color: ${color.white};
