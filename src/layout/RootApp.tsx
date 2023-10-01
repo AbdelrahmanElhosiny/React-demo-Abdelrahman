@@ -30,6 +30,7 @@ const Holder = styled.div`
   .routes-holder {
     background-color: ${color.white};
     border-radius: 2em;
+    box-shadow: 0.4em 0.5em black;
   }
 `;
 

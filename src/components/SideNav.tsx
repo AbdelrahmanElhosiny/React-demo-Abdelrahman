@@ -27,7 +27,7 @@ const SideNav = () => {
         />
         <SideNavLink icon={<SVG.Icons.chat />} label="Chat" path="/chat" />
       </ul>
-      <div className="faq-ink all-links-holder">
+      <div className="faq-link all-links-holder">
         <SideNavLink icon={<SVG.Icons.info />} label="FAQ" path="/faq" />
       </div>
     </Holder>
@@ -67,7 +67,6 @@ const Holder = styled.div`
 
     .link-holder {
       ${font.regular}
-      position: relative;
       align-items: center;
       color: currentColor;
       list-style: none;
@@ -88,6 +87,7 @@ const Holder = styled.div`
 
   .faq-link {
     align-self: end;
+    justify-content: center;
   }
 `;
 
