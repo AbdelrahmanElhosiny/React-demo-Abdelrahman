@@ -18,7 +18,7 @@ const SideNav = () => {
         <SVG.Logo.monotone />
       </div>
 
-      <ul className="all-links-holder">
+      <ul className="links-holder">
         <SideNavLink icon={<SVG.Icons.home />} label="Home" path="/" />
         <SideNavLink
           icon={<SVG.Icons.gear />}
@@ -28,7 +28,7 @@ const SideNav = () => {
         <SideNavLink icon={<SVG.Icons.chat />} label="Chat" path="/chat" />
         <SideNavLink icon={<SVG.Icons.form />} label="Form" path="/form" />
       </ul>
-      <div className="faq-link all-links-holder">
+      <div className="faq-link links-holder">
         <SideNavLink icon={<SVG.Icons.info />} label="FAQ" path="/faq" />
       </div>
     </Holder>
@@ -39,7 +39,7 @@ const SideNav = () => {
 // --------------------
 const SideNavLink = ({ icon, label, path }: SideNavLinkProps) => {
   return (
-    <NavLink className="link-holder" to={path}>
+    <NavLink className="link" to={path}>
       <span className="link-icon">{icon}</span>
       <span className="link-label">{label}</span>
     </NavLink>
@@ -59,14 +59,15 @@ const Holder = styled.div`
     width: 8em;
     fill: currentColor;
   }
-  .all-links-holder {
+  .links-holder {
     display: flex;
     flex-direction: column;
     gap: 1.5em;
     margin: 0;
     padding: 0;
 
-    .link-holder {
+    .link {
+      position: relative;
       ${font.regular}
       align-items: center;
       color: currentColor;
@@ -74,6 +75,33 @@ const Holder = styled.div`
       display: flex;
       gap: 1.5em;
       text-decoration: none;
+      cursor: pointer;
+      opacity: 0.5;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: -2.1em;
+        top: -0.1em;
+        width: 0.8em;
+        height: 100%;
+        border-radius: 0em 0.8em 0.8em 0em;
+        background-color: ${color.white};
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+
+      :hover {
+        opacity: 0.8;
+      }
+
+      &.active {
+        opacity: 1;
+
+        &::before {
+          opacity: 1;
+        }
+      }
 
       .link-icon svg {
         width: 2em;
