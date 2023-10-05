@@ -89,9 +89,7 @@ const FormSubmit = () => {
 //STYLE
 //------------------
 const FormHolder = styled.form`
-
   display: grid;
-  
 
   label {
     display: inline;
@@ -127,7 +125,8 @@ const FormHolder = styled.form`
   .MuiButtonBase-root {
     margin-top: 0.5em;
     ${font.bold};
-    background-color: ${color.violet}
+    background-color: ${color.violet};
+  }
 `;
 
 export default FormSubmit;
