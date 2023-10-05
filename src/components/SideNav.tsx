@@ -26,6 +26,7 @@ const SideNav = () => {
           path="/settings"
         />
         <SideNavLink icon={<SVG.Icons.chat />} label="Chat" path="/chat" />
+        <SideNavLink icon={<SVG.Icons.form />} label="Form" path="/form" />
       </ul>
       <div className="faq-link all-links-holder">
         <SideNavLink icon={<SVG.Icons.info />} label="FAQ" path="/faq" />
