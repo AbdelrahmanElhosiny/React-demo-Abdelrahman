@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import { useFormik } from "formik";
 import font from "../styles/font";
+import { Button } from "@mui/material";
+import color from "../styles/color";
 
 const FormSubmit = () => {
   const formik = useFormik({
@@ -77,7 +79,9 @@ const FormSubmit = () => {
         />
       </div>
 
-      <button type="submit">Submit</button>
+      <Button size="large" variant="contained" type="submit">
+        Submit
+      </Button>
     </FormHolder>
   );
 };
@@ -85,9 +89,14 @@ const FormSubmit = () => {
 //STYLE
 //------------------
 const FormHolder = styled.form`
+
+  display: grid;
+  
+
   label {
-    ${font.bold}
-    margin-bottom: 5px;
+    display: inline;
+    ${font.regular}
+    font-size: 1.2em;
   }
   input[type="text"],
   input[type="email"],
@@ -109,9 +118,16 @@ const FormHolder = styled.form`
   }
 
   .error {
+    display: inline;
+    margin-left: 1em;
     ${font.thin}
     color: red;
   }
+
+  .MuiButtonBase-root {
+    margin-top: 0.5em;
+    ${font.bold};
+    background-color: ${color.violet}
 `;
 
 export default FormSubmit;
