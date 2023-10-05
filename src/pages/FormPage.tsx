@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
-import ChannelForm from "../components/ChannelForm";
+import FormSubmit from "../components/FormSubmit";
 
 function FormPage() {
   return (
     <Holder>
-      <ChannelForm />
+      <FormSubmit />
     </Holder>
   );
 }
