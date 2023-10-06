@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { useFormik } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import font from "../styles/font";
 import { Button } from "@mui/material";
 import color from "../styles/color";
@@ -34,53 +34,62 @@ const validationSchema = Yup.object({
     ),
 });
 // //------------------
-// Formik Hook
+// JSX
 // //------------------
 const FormSubmit = () => {
-  const formik = useFormik({
-    initialValues,
-    onSubmit,
-    validationSchema,
-  });
-
-  console.log("visited", formik.errors);
+  //   const formik = useFormik({
+  //     initialValues,
+  //     onSubmit,
+  //     validationSchema,
+  //   });
 
   return (
-    <FormHolder onSubmit={formik.handleSubmit}>
-      <div>
-        <label htmlFor="name">Name</label>
-        {formik.touched.name && formik.errors.name ? (
-          <div className="error">{formik.errors.name}</div>
-        ) : null}
-        <input type="text" {...formik.getFieldProps("name")} />
-      </div>
+    <FormHolder>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
+        <Form>
+          <div>
+            <label htmlFor="name">Name</label>
+            <ErrorMessage
+              name="name"
+              render={(msg) => <div className="error">{msg}</div>}
+            />
+            <Field type="text" name="name" />
+          </div>
 
-      <div>
-        <label htmlFor="email">Email</label>
-        {formik.touched.email && formik.errors.email ? (
-          <div className="error">{formik.errors.email}</div>
-        ) : null}
-        <input type="text" {...formik.getFieldProps("email")} />
-      </div>
+          <div>
+            <label htmlFor="email">Email</label>
+            <ErrorMessage
+              name="email"
+              render={(msg) => <div className="error">{msg}</div>}
+            />
+            <Field type="text" name="email" />
+          </div>
 
-      <div>
-        <label htmlFor="password">Password</label>
-        {formik.touched.password && formik.errors.password ? (
-          <div className="error">{formik.errors.password}</div>
-        ) : null}
-        <input type="password" {...formik.getFieldProps("password")} />
-      </div>
+          <div>
+            <label htmlFor="password">Password</label>
+            <ErrorMessage
+              name="password"
+              render={(msg) => <div className="error">{msg}</div>}
+            />
+            <Field type="password" name="password" />
+          </div>
 
-      <Button size="large" variant="contained" type="submit">
-        Submit
-      </Button>
+          <Button size="large" variant="contained" type="submit">
+            Submit
+          </Button>
+        </Form>
+      </Formik>
     </FormHolder>
   );
 };
 //------------------
 //STYLE
 //------------------
-const FormHolder = styled.form`
+const FormHolder = styled.div`
   display: grid;
 
   label {
