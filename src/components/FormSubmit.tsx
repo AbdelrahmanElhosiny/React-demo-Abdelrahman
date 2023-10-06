@@ -52,13 +52,7 @@ const FormSubmit = () => {
         {formik.touched.name && formik.errors.name ? (
           <div className="error">{formik.errors.name}</div>
         ) : null}
-        <input
-          type="text"
-          name="name"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.name as string}
-        />
+        <input type="text" {...formik.getFieldProps("name")} />
       </div>
 
       <div>
@@ -66,13 +60,7 @@ const FormSubmit = () => {
         {formik.touched.email && formik.errors.email ? (
           <div className="error">{formik.errors.email}</div>
         ) : null}
-        <input
-          type="text"
-          name="email"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.email as string}
-        />
+        <input type="text" {...formik.getFieldProps("email")} />
       </div>
 
       <div>
@@ -80,13 +68,7 @@ const FormSubmit = () => {
         {formik.touched.password && formik.errors.password ? (
           <div className="error">{formik.errors.password}</div>
         ) : null}
-        <input
-          type="password"
-          name="password"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.password as string}
-        />
+        <input type="password" {...formik.getFieldProps("password")} />
       </div>
 
       <Button size="large" variant="contained" type="submit">
