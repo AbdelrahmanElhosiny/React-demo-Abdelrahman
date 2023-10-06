@@ -28,9 +28,12 @@ const SideNav = () => {
         <SideNavLink icon={<SVG.Icons.chat />} label="Chat" path="/chat" />
         <SideNavLink icon={<SVG.Icons.form />} label="Form" path="/form" />
       </ul>
-      <div className="faq-link links-holder">
-        <SideNavLink icon={<SVG.Icons.info />} label="FAQ" path="/faq" />
-      </div>
+      <Link to="/faq" className="faq-link link">
+        <span className="link-icon">
+          <SVG.Icons.info />
+        </span>
+        <span className="link-label">FAQ</span>
+      </Link>
     </Holder>
   );
 };
@@ -66,52 +69,52 @@ const Holder = styled.div`
     gap: 1.5em;
     margin: 0;
     padding: 0;
+  }
 
-    .link {
-      position: relative;
-      ${font.regular}
-      align-items: center;
-      color: currentColor;
-      list-style: none;
-      display: flex;
-      gap: 1.5em;
-      text-decoration: none;
-      cursor: pointer;
-      opacity: 0.5;
+  .link {
+    position: relative;
+    ${font.regular}
+    align-items: center;
+    color: currentColor;
+    list-style: none;
+    display: flex;
+    gap: 1.5em;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.5;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -2.1em;
+      top: -0.1em;
+      width: 0.8em;
+      height: 100%;
+      border-radius: 0em 0.8em 0.8em 0em;
+      background-color: ${color.white};
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    :hover {
+      opacity: 0.8;
+    }
+
+    &.active {
+      opacity: 1;
 
       &::before {
-        content: "";
-        position: absolute;
-        left: -2.1em;
-        top: -0.1em;
-        width: 0.8em;
-        height: 100%;
-        border-radius: 0em 0.8em 0.8em 0em;
-        background-color: ${color.white};
-        opacity: 0;
-        transition: opacity 0.2s;
-      }
-
-      :hover {
-        opacity: 0.8;
-      }
-
-      &.active {
         opacity: 1;
-
-        &::before {
-          opacity: 1;
-        }
       }
+    }
 
-      .link-icon svg {
-        width: 2em;
-        fill: currentColor;
-      }
+    .link-icon svg {
+      width: 2em;
+      fill: currentColor;
+    }
 
-      .link-label {
-        font-size: 1.5em;
-      }
+    .link-label {
+      font-size: 1.5em;
     }
   }
 
