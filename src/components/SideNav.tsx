@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import SVG from "../assets/svg";
 import React from "react";
 import color from "../styles/color";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import font from "../styles/font";
 
 interface SideNavLinkProps {
@@ -14,9 +14,9 @@ interface SideNavLinkProps {
 const SideNav = () => {
   return (
     <Holder>
-      <div className="logo">
+      <Link to="/" className="logo">
         <SVG.Logo.monotone />
-      </div>
+      </Link>
 
       <ul className="links-holder">
         <SideNavLink icon={<SVG.Icons.home />} label="Home" path="/" />
@@ -57,8 +57,9 @@ const Holder = styled.div`
 
   .logo svg {
     width: 8em;
-    fill: currentColor;
+    fill: ${color.white};
   }
+
   .links-holder {
     display: flex;
     flex-direction: column;
