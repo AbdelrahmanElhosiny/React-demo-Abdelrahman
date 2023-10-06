@@ -37,12 +37,6 @@ const validationSchema = Yup.object({
 // JSX
 // //------------------
 const FormSubmit = () => {
-  //   const formik = useFormik({
-  //     initialValues,
-  //     onSubmit,
-  //     validationSchema,
-  //   });
-
   return (
     <FormHolder>
       <Formik
