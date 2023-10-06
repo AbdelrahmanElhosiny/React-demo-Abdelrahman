@@ -4,16 +4,29 @@ import font from "../styles/font";
 import { Button } from "@mui/material";
 import color from "../styles/color";
 
+interface FormFields {
+  name: string | null;
+  email: string | null;
+  password: string | null;
+}
+
+const initialValues: FormFields = {
+  name: "",
+  email: "",
+  password: "",
+};
+
 const FormSubmit = () => {
   const formik = useFormik({
-    initialValues: {
-      name: "",
-      email: "",
-      channel: "",
-    },
+    initialValues,
     onSubmit: (values) => console.log("from submit", values),
     validate: (values) => {
-      let errors = {};
+      let errors: FormFields = {
+        name: null,
+        email: null,
+        password: null,
+      };
+
       if (!values.name) {
         errors.name = "Required";
       }
@@ -26,18 +39,25 @@ const FormSubmit = () => {
         errors.email = "Invalid email format";
       }
 
-      if (!values.channel) {
-        errors.channel = "Required";
+      if (!values.password) {
+        errors.password = "Required";
+      } else if (
+        !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/i.test(values.password)
+      ) {
+        errors.password = "Weak password";
       }
-      return errors;
+
+      if (errors.email || errors.name || errors.password) {
+        return errors;
+      }
     },
   });
 
-  console.log("visited", formik.touched);
+  console.log("visited", formik.errors);
 
   return (
     <FormHolder onSubmit={formik.handleSubmit}>
-      <div className="form-element">
+      <div>
         <label htmlFor="name">Name</label>
         {formik.touched.name && formik.errors.name ? (
           <div className="error">{formik.errors.name}</div>
@@ -47,11 +67,11 @@ const FormSubmit = () => {
           name="name"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          value={formik.values.name}
+          value={formik.values.name as string}
         />
       </div>
 
-      <div className="form-element">
+      <div>
         <label htmlFor="email">Email</label>
         {formik.touched.email && formik.errors.email ? (
           <div className="error">{formik.errors.email}</div>
@@ -61,21 +81,21 @@ const FormSubmit = () => {
           name="email"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          value={formik.values.email}
+          value={formik.values.email as string}
         />
       </div>
 
-      <div className="form-element">
-        <label htmlFor="channel">Channel</label>
-        {formik.touched.channel && formik.errors.channel ? (
-          <div className="error">{formik.errors.channel}</div>
+      <div>
+        <label htmlFor="password">Password</label>
+        {formik.touched.password && formik.errors.password ? (
+          <div className="error">{formik.errors.password}</div>
         ) : null}
         <input
-          type="text"
-          name="channel"
+          type="password"
+          name="password"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          value={formik.values.channel}
+          value={formik.values.password as string}
         />
       </div>
 
@@ -98,6 +118,7 @@ const FormHolder = styled.form`
   }
   input[type="text"],
   input[type="email"],
+  input[type="password"],
   textarea {
     display: block;
     width: 400px;
@@ -112,9 +133,6 @@ const FormHolder = styled.form`
     margin-bottom: 1.5em;
   }
 
-  .form-element {
-  }
-
   .error {
     display: inline;
     margin-left: 1em;
@@ -123,9 +141,15 @@ const FormHolder = styled.form`
   }
 
   .MuiButtonBase-root {
-    margin-top: 0.5em;
+    margin-top: 0.8em;
     ${font.bold};
     background-color: ${color.violet};
+    opacity: 0.8;
+    transition: 0.3s;
+    :hover {
+      background-color: ${color.violet};
+      opacity: 1;
+    }
   }
 `;
 

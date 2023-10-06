@@ -116,7 +116,6 @@ const Holder = styled.div`
 
   .faq-link {
     align-self: end;
-    justify-content: center;
   }
 `;
 
