@@ -3,54 +3,44 @@ import { useFormik } from "formik";
 import font from "../styles/font";
 import { Button } from "@mui/material";
 import color from "../styles/color";
+import * as Yup from "yup";
 
 interface FormFields {
   name: string | null;
   email: string | null;
   password: string | null;
 }
-
+//------------------
+// Formik content
+//------------------
 const initialValues: FormFields = {
   name: "",
   email: "",
   password: "",
 };
 
+const onSubmit = (values: FormFields) => {
+  console.log("from submit", values);
+};
+
+const validationSchema = Yup.object({
+  name: Yup.string().required("Required"),
+  email: Yup.string().email("Invalid email format").required("Required"),
+  password: Yup.string()
+    .required("Required")
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+      "Weak password"
+    ),
+});
+// //------------------
+// Formik Hook
+// //------------------
 const FormSubmit = () => {
   const formik = useFormik({
     initialValues,
-    onSubmit: (values) => console.log("from submit", values),
-    validate: (values) => {
-      let errors: FormFields = {
-        name: null,
-        email: null,
-        password: null,
-      };
-
-      if (!values.name) {
-        errors.name = "Required";
-      }
-
-      if (!values.email) {
-        errors.email = "Required";
-      } else if (
-        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-      ) {
-        errors.email = "Invalid email format";
-      }
-
-      if (!values.password) {
-        errors.password = "Required";
-      } else if (
-        !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/i.test(values.password)
-      ) {
-        errors.password = "Weak password";
-      }
-
-      if (errors.email || errors.name || errors.password) {
-        return errors;
-      }
-    },
+    onSubmit,
+    validationSchema,
   });
 
   console.log("visited", formik.errors);

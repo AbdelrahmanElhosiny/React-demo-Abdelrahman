@@ -4,7 +4,6 @@ import React from "react";
 import color from "../styles/color";
 import { NavLink, Link } from "react-router-dom";
 import font from "../styles/font";
-import * as Yup from "yup";
 
 interface SideNavLinkProps {
   icon: React.ReactNode;
