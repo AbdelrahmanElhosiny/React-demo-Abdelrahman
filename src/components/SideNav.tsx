@@ -92,7 +92,7 @@ const Holder = styled.div`
       content: "";
       position: absolute;
       left: -2.1em;
-      top: -0.1em;
+      top: -0.2em;
       width: 0.8em;
       height: 100%;
       border-radius: 0em 0.8em 0.8em 0em;
