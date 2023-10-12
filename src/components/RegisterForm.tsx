@@ -1,5 +1,4 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { TextField } from "@mui/material";
 import styled from "@emotion/styled";
 import * as Yup from "yup";
 
@@ -54,9 +53,7 @@ function RegisterForm() {
         onSubmit={onSubmit}
       >
         <Form>
-          <div>
-            <Field></Field>
-          </div>
+          <div></div>
         </Form>
       </Formik>
     </FormHolder>
