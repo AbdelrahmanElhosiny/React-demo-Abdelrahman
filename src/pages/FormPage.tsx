@@ -10,9 +10,10 @@ function FormPage() {
 }
 
 const Holder = styled.div`
-  padding-top: 5em;
+  height: 96vh;
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
 export default FormPage;
