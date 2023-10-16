@@ -3,7 +3,7 @@ const color = {
   purple: "#E07EA1",
   white: "#ffffff",
   black: "#323230",
-  gray: "#A4A5AA"
+  gray: "#a4a5aaaf"
 }
 
 export default color
