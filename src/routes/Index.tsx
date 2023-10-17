@@ -3,7 +3,7 @@ import HomePage from "../pages/HomePage";
 import SettingsPage from "../pages/SettingsPage";
 import ChatPage from "../pages/ChatPage";
 import FAQ from "../pages/FaqPage";
-import FormPage from "../pages/FormPage";
+import FormPage from "../pages/TryFormikPage";
 import RegisterPage from "../pages/RegisterPage";
 
 function RouterIndex() {

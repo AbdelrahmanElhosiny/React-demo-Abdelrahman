@@ -1,11 +1,11 @@
-import { TextField, TextFieldProps } from "@mui/material";
+import { TextField as MUITextField, TextFieldProps } from "@mui/material";
 import { useField } from "formik";
 
 type Props = TextFieldProps & {
   name: string;
 };
 
-const TextfieldWrapper = ({ name, ...rest }: Props) => {
+const TextField = ({ name, ...rest }: Props) => {
   const [filed, meta] = useField(name);
 
   const configTextfield = {
@@ -19,7 +19,7 @@ const TextfieldWrapper = ({ name, ...rest }: Props) => {
     configTextfield.helperText = meta.error;
   }
 
-  return <TextField variant="outlined" {...configTextfield} />;
+  return <MUITextField variant="outlined" {...configTextfield} />;
 };
 
-export default TextfieldWrapper;
+export default TextField;

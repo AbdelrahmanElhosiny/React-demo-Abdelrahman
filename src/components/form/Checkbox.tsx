@@ -3,7 +3,7 @@ import {
   FormControlLabel,
   FormLabel,
   FormGroup,
-  Checkbox,
+  Checkbox as MUICheckbox,
 } from "@mui/material";
 import { useField, useFormikContext } from "formik";
 
@@ -13,7 +13,7 @@ type Props = {
   legend: string;
 };
 
-const CheckboxWrapper = ({ name, label, legend, ...rest }: Props) => {
+const Checkbox = ({ name, label, legend, ...rest }: Props) => {
   const { setFieldValue } = useFormikContext();
 
   const [filed, meta] = useField(name);
@@ -40,7 +40,7 @@ const CheckboxWrapper = ({ name, label, legend, ...rest }: Props) => {
       <FormGroup>
         <FormControlLabel
           {...configCheckbox}
-          control={<Checkbox />}
+          control={<MUICheckbox />}
           label={label}
         />
       </FormGroup>
@@ -48,4 +48,4 @@ const CheckboxWrapper = ({ name, label, legend, ...rest }: Props) => {
   );
 };
 
-export default CheckboxWrapper;
+export default Checkbox;

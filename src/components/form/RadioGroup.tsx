@@ -2,7 +2,7 @@ import {
   FormControl,
   FormControlLabel,
   FormLabel,
-  RadioGroup,
+  RadioGroup as MUIRadioGroup,
   Radio,
 } from "@mui/material";
 import { useField, useFormikContext } from "formik";
@@ -18,7 +18,7 @@ type Props = {
   row?: boolean;
 };
 
-const RadioGroupWrapper = ({ name, options, legend, row, ...rest }: Props) => {
+const RadioGroup = ({ name, options, legend, row, ...rest }: Props) => {
   const { setFieldValue } = useFormikContext();
 
   const [filed, meta] = useField(name);
@@ -42,7 +42,7 @@ const RadioGroupWrapper = ({ name, options, legend, row, ...rest }: Props) => {
   return (
     <FormControl {...configFormControl}>
       <FormLabel component="legend">{legend}</FormLabel>
-      <RadioGroup row={row}>
+      <MUIRadioGroup row={row}>
         {options.map((option) => {
           return (
             <FormControlLabel
@@ -53,9 +53,9 @@ const RadioGroupWrapper = ({ name, options, legend, row, ...rest }: Props) => {
             />
           );
         })}
-      </RadioGroup>
+      </MUIRadioGroup>
     </FormControl>
   );
 };
 
-export default RadioGroupWrapper;
+export default RadioGroup;

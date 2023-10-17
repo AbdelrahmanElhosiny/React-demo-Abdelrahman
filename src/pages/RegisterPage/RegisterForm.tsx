@@ -1,11 +1,14 @@
 import { Formik, Form } from "formik";
 import styled from "@emotion/styled";
 import * as Yup from "yup";
-import Textfield from "./FormComponents/Textfield";
-import SelectField from "./FormComponents/SelectField";
-import Countries from "./Countries.json";
-import Checkbox from "./FormComponents/Checkbox";
-import Radiogroup from "./FormComponents/Radiogroup";
+import {
+  TextField,
+  SelectFiled,
+  Checkbox,
+  RadioGroup,
+  PasswordField,
+} from "../../components/form";
+import Countries from "../../assets/Countries.json";
 import { Button } from "@mui/material";
 
 interface FormFields {
@@ -69,17 +72,13 @@ function RegisterForm() {
         onSubmit={onSubmit}
       >
         <Form className="form">
-          <Textfield name="firstName" label="First Name" />
-          <Textfield name="lastName" label="Last Name" />
-          <Textfield name="email" label="E-mail" />
-          <SelectField name="country" label="Country" options={Countries} />
-          <Textfield name="password" label="Password" type="password" />
-          <Textfield
-            name="confirmPassword"
-            label="Confirm password"
-            type="password"
-          />
-          <Radiogroup
+          <TextField name="firstName" label="First Name" />
+          <TextField name="lastName" label="Last Name" />
+          <TextField name="email" label="E-mail" />
+          <SelectFiled name="country" label="Country" options={Countries} />
+          <PasswordField name="password" label="Password" />
+          <PasswordField name="confirmPassword" label="Confirm password" />
+          <RadioGroup
             row
             name="accountType"
             legend="Select your account type"

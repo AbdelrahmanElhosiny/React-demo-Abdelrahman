@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import FormSubmit from "../components/FormSubmit";
+import FormSubmit from "./FormSubmit";
 
 function FormPage() {
   return (

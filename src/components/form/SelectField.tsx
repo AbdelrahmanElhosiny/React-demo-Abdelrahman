@@ -6,7 +6,7 @@ type Props = TextFieldProps & {
   options: any;
 };
 
-const SelectWrapper = ({ name, options, ...rest }: Props) => {
+const SelectFiled = ({ name, options, ...rest }: Props) => {
   const { setFieldValue } = useFormikContext();
   const [field, meta] = useField(name);
 
@@ -41,4 +41,4 @@ const SelectWrapper = ({ name, options, ...rest }: Props) => {
   );
 };
 
-export default SelectWrapper;
+export default SelectFiled;

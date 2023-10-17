@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import color from "../styles/color";
+import color from "../../styles/color";
 
 function RegisterSubmitted() {
   return (

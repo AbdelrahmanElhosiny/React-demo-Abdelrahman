@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import font from "../styles/font";
+import font from "../../styles/font";
 import { Button } from "@mui/material";
-import color from "../styles/color";
+import color from "../../styles/color";
 import * as Yup from "yup";
 
 interface FormFields {

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import RegisterForm from "../components/RegisterForm";
-import RegisterSubmitted from "../components/RegisterSubmitted";
+import RegisterForm from "./RegisterForm";
+import RegisterSubmitted from "./RegisterSubmitted";
 
 function RegisterPage() {
   return (
