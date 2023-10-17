@@ -37,10 +37,15 @@ const validationSchema = Yup.object({
   country: Yup.string().required("Required"),
   password: Yup.string()
     .required("Required")
-    .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
-      "Weak password"
-    ),
+    // .matches(
+    //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+    //   "Weak password"
+    // )
+    .min(8, "Must be 8 characters or more")
+    .matches(/[a-z]+/, "One lowercase character")
+    .matches(/[A-Z]+/, "One uppercase character")
+    .matches(/[!@#\$%\^&\*]+/, "One special character")
+    .matches(/\d+/, "One number"),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref("password"), undefined], "Passwords must match")
     .required("Required"),
