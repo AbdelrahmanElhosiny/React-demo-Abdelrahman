@@ -32,6 +32,11 @@ const SideNav = () => {
           label=" Register"
           path="/register"
         />
+        <SideNavLink
+          icon={<SVG.Icons.register />}
+          label=" Register2"
+          path="/register2"
+        />
       </ul>
       <Link to="/faq" className="faq-link link">
         <span className="link-icon">
