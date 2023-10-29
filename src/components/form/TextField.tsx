@@ -3,11 +3,11 @@ import { useField } from "formik";
 
 type Props = TextFieldProps & {
   name: string;
+  innerRef?: any;
 };
 
-const TextField = ({ name, ...rest }: Props) => {
+const TextField = ({ name, innerRef, ...rest }: Props) => {
   const [filed, meta] = useField(name);
-
   const configTextfield = {
     ...filed,
     ...rest,
@@ -19,7 +19,9 @@ const TextField = ({ name, ...rest }: Props) => {
     configTextfield.helperText = meta.error;
   }
 
-  return <MUITextField variant="outlined" {...configTextfield} />;
+  return (
+    <MUITextField variant="outlined" {...configTextfield} ref={innerRef} />
+  );
 };
 
 export default TextField;

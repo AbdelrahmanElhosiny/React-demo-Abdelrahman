@@ -11,6 +11,7 @@ import {
 import Countries from "../../assets/Countries.json";
 import { Button } from "@mui/material";
 import color from "../../styles/color";
+import { useRef, useEffect } from "react";
 
 interface Props {
   onSubmit: (values: FormFields) => void;
@@ -78,11 +79,19 @@ const RegisterForm: React.FC<Props> = ({ onSubmit }) => {
     validationSchema,
   };
 
+  // =============================
+  // Focus firstName on page load
+  // =============================
+  const inputRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    inputRef.current && inputRef.current.querySelector("input")?.focus();
+  }, []);
+
   return (
     <FormHolder>
       <Formik {...formProps}>
         <Form className="form">
-          <TextField name="firstName" label="First Name" />
+          <TextField name="firstName" label="First Name" innerRef={inputRef} />
           <TextField name="lastName" label="Last Name" />
           <TextField name="email" label="E-mail" />
           <SelectFiled name="country" label="Country" options={Countries} />
