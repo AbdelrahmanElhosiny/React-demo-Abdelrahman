@@ -10,6 +10,7 @@ import {
 } from "../../components/form";
 import Countries from "../../assets/Countries.json";
 import { Button } from "@mui/material";
+import color from "../../styles/color";
 
 interface Props {
   onSubmit: (values: FormFields) => void;
@@ -110,9 +111,24 @@ const RegisterForm: React.FC<Props> = ({ onSubmit }) => {
             legend="Terms and conditions"
             label="I agree to the terms and conditions"
           />
-          <Button size="large" variant="contained" type="submit">
-            Submit
-          </Button>
+          <div className="buttonW">
+            <Button
+              size="large"
+              variant="contained"
+              type="submit"
+              className="s-button"
+            >
+              Submit
+            </Button>
+            <Button
+              size="large"
+              variant="contained"
+              type="reset"
+              className="r-button"
+            >
+              Reset
+            </Button>
+          </div>
         </Form>
       </Formik>
     </FormHolder>
@@ -125,6 +141,23 @@ const FormHolder = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1.5em;
+  }
+  .buttonW {
+    display: flex;
+    width: 100%;
+    gap: 0.8em;
+  }
+  .s-button,
+  .r-button {
+    width: 100%;
+  }
+
+  .s-button {
+    background-color: ${color.violet};
+  }
+
+  .r-button {
+    background-color: ${color.purple};
   }
 `;
 
